@@ -1,6 +1,8 @@
     * {
         box-sizing: border-box;
+        /* i used border-box for easier element sizing */
         transition: 0.5s;
+        /* added transition for smoother animations throughout the website */
     }
 
 
