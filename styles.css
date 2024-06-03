@@ -149,6 +149,9 @@
         width: 100%;
         height: auto;
         grid-template-rows: repeat(auto-fill, minmax(10px, 1fr));
+        /* This helps create a flexbile and responsive layout */
+        /* auto-fill means it will automaticaly fill based on the number of rows we input */
+        /* 10px is minmum and 1fr is maximum size */
     }
 
     .grid-section:hover {
@@ -157,6 +160,8 @@
     }
 
     #video {
+        display: flex;
+        flex-direction: column;
         flex: 1;
         max-width: 100%;
         height: auto;
@@ -189,6 +194,7 @@
 
             margin: 5px 0;
             flex: 1 1 auto;
+            /* Flex grow 1 and flex shrink 1 & auto essentially makes the item take its default size */
             text-align: center;
         }
 
