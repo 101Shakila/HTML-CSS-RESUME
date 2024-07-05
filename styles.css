@@ -1,223 +1,381 @@
-    * {
-        box-sizing: border-box;
-        /* i used border-box for easier element sizing */
-        transition: 0.5s;
-        /* added transition for smoother animations throughout the website */
-    }
+/* Goolge Chrome was used for testing out the file */
+* {
+    box-sizing: border-box;
+    /* i used border-box for easier element sizing */
+    transition: 0.5s;
+    /* added transition for smoother animations throughout the website */
+}
 
 
-    body,
-    html {
-        height: 100%;
-        margin: 0;
+body,
+html {
+    height: 100%;
+    margin: 0;
 
-    }
+}
 
-    body {
-        font-family: 'Courier New', Courier, monospace;
+body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    flex: 1;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    flex: 6;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.container p {
+    flex: 1;
+
+}
+
+.container main {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+
+}
+
+
+
+main h2 {
+    order: 0;
+    flex: 1;
+}
+
+#homePageContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.container main img {
+    max-width: 50%;
+    height: auto;
+    padding: 0 5px;
+    border-radius: 12%;
+}
+
+nav {
+    width: 200px;
+    background-color: rgb(82, 82, 82);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style-type: none;
+    flex: 1;
+
+}
+
+nav ul li {
+    margin: 10px 0;
+
+}
+
+nav ul li a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: block;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    font-size: 21px;
+    transition: 0.3s;
+    color: rgb(230, 118, 32);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin: 0;
+}
+
+#aboutContent {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    border-radius: 10%;
+    height: 100%;
+}
+
+#aboutContentgrid {
+    display: grid;
+    border-radius: 10%;
+    gap: 20px;
+}
+
+#aboutContentgrid .grid-section img {
+    max-width: 15%;
+    height: auto;
+    padding: 0 5px;
+    border-radius: 12%;
+}
+
+#aboutContentgrid .grid-section img:hover {
+    max-width: 16%;
+}
+
+.aboutSection {
+    flex: 1
+}
+
+.grid-section {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    height: auto;
+
+}
+
+.grid-section:hover {
+    background-color: rgb(242, 242, 242);
+    border-radius: 10%;
+}
+
+#video {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+}
+
+.containerGrid {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main nav"
+        "footer footer footer";
+    grid-template-columns: 0.5fr 3fr auto;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.containerGrid header {
+    grid-area: header;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.containerGrid footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+}
+
+
+.containerGrid nav {
+    display: grid;
+    grid-area: nav;
+    background-color: rgb(82, 82, 82);
+    padding: 20px;
+}
+
+
+.containerGrid nav ul {
+    display: grid;
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: rgb(56, 56, 56);
+    color: white;
+    padding: 20px;
+    align-content: center;
+}
+
+
+.containerGrid main {
+    grid-area: main;
+}
+
+.containerGrid .grid-section {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    height: auto;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    /* tablet view */
+
+    /* Mobile Screens */
+    .container {
         display: flex;
         flex-direction: column;
     }
 
-    header,
-    footer {
-        flex: 1;
-        background-color: #333;
-        color: white;
-        text-align: center;
+    nav {
+        width: 100%;
+        padding: 10px;
+        order: -1;
+
+        /* this is needed to move the nagivation bar to the top without changing html */
     }
 
-    .container {
-        flex: 6;
+    .containerGrid nav ul {
         display: flex;
-        flex-direction: row;
 
     }
 
-    .container p {
-        flex: 1;
+    nav ul {
+        flex-direction: row;
+        padding: 0;
+    }
 
+    nav ul li {
+
+        margin: 5px 0;
+        flex: 1 1 auto;
+        /* Flex grow 1 and flex shrink 1 & auto essentially makes the item take its default size */
+        text-align: center;
     }
 
     .container main {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        padding: 10px;
         overflow: hidden;
-        flex: 1;
-        padding: 20px;
-        text-align: center;
-        align-items: center;
-
-    }
-
-
-
-    main h2 {
-        order: 0;
-        flex: 1;
-    }
-
-    #homePageContent {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .container main img {
-        max-width: 50%;
-        height: auto;
-        padding: 0 5px;
-        border-radius: 12%;
-    }
-
-    nav {
-        width: 200px;
-        background-color: rgb(82, 82, 82);
-        padding: 20px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        list-style-type: none;
-        flex: 1;
-
-    }
-
-    nav ul li {
-        margin: 10px 0;
-
+        /* prevents from main content from overflowing its boundaries */
     }
 
     nav ul li a {
-        font-size: 20px;
-        font-weight: bold;
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-        display: block;
-        overflow: hidden;
-        transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-        font-size: 21px;
-        transition: 0.3s;
-        color: rgb(230, 118, 32);
-    }
-
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1em 0;
-        margin: 0;
-    }
-
-    #aboutContent {
-        display: flex;
-        flex-direction: column;
-        flex: 4;
-        border-radius: 10%;
-        height: 100%;
+        font-size: 18px;
     }
 
     #aboutContentgrid {
-        display: grid;
-        border-radius: 10%;
-        gap: 20px;
+        grid-template-columns: 1fr;
     }
 
     #aboutContentgrid .grid-section img {
         max-width: 15%;
-        height: auto;
-        padding: 0 5px;
-        border-radius: 12%;
     }
 
-    #aboutContentgrid .grid-section img:hover {
-        max-width: 16%;
+    /* We changed the grid layout for both mobile and tablet view so that the sidebar is above the main content - grid-template-areas */
+    .containerGrid {
+        grid-template-areas:
+            "header"
+            "nav"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto 1fr auto;
     }
 
-    .aboutSection {
-        flex: 1
+    .sidebar {
+        text-align: center;
     }
 
-    .grid-section {
-        display: grid;
-        justify-items: center;
-        width: 100%;
-        height: auto;
-        grid-template-rows: repeat(auto-fill, minmax(10px, 1fr));
-        /* This helps create a flexbile and responsive layout */
-        /* auto-fill means it will automaticaly fill based on the number of rows we input */
-        /* 10px is minmum and 1fr is maximum size */
-    }
 
-    .grid-section:hover {
-        background-color: rgb(242, 242, 242);
-        border-radius: 10%;
-    }
 
-    #video {
+
+
+}
+
+@media only screen and (max-width: 480px) {
+    /* Mobile view */
+
+    /* Mobile Screens */
+    .container {
         display: flex;
         flex-direction: column;
-        flex: 1;
-        max-width: 100%;
-        height: auto;
     }
 
-
-
-    @media only screen and (max-width: 768px) {
-
-        /* Mobile Screens */
-        .container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        nav {
-            width: 100%;
-            padding: 10px;
-            order: -1;
-
-            /* this is needed to move the nagivation bar to the top without changing html */
-        }
-
-        nav ul {
-            flex-direction: row;
-            padding: 0;
-        }
-
-        nav ul li {
-
-            margin: 5px 0;
-            flex: 1 1 auto;
-            /* Flex grow 1 and flex shrink 1 & auto essentially makes the item take its default size */
-            text-align: center;
-        }
-
-        .container main {
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            overflow: hidden;
-            /* prevents from main content from overflowing its boundaries */
-        }
-
-        nav ul li a {
-            font-size: 18px;
-        }
-
-        #aboutContentgrid {
-            grid-template-columns: 1fr;
-        }
-
-        #aboutContentgrid .grid-section img {
-            max-width: 15%;
-        }
+    .containerGrid nav ul {
+        display: flex;
+        flex-direction: column;
 
     }
+
+    /* We changed the grid layout for both mobile and tablet view so that the sidebar is above the main content - grid-template-areas */
+
+    .containerGrid {
+        grid-template-areas:
+            "header"
+            "nav"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto 1fr auto;
+    }
+
+    .sidebar {
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        padding: 10px;
+        order: -1;
+
+        /* this is needed to move the nagivation bar to the top without changing html */
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+
+        margin: 5px 0;
+        flex: 1 1 auto;
+        /* Flex grow 1 and flex shrink 1 & auto essentially makes the item take its default size */
+        text-align: center;
+    }
+
+    .container main {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        overflow: hidden;
+        /* prevents from main content from overflowing its boundaries */
+    }
+
+    nav ul li a {
+        font-size: 18px;
+    }
+
+    #aboutContentgrid {
+        grid-template-columns: 1fr;
+    }
+
+    #aboutContentgrid .grid-section img {
+        max-width: 15%;
+    }
+
+}
